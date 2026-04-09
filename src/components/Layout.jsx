@@ -1,17 +1,19 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
+import { Outlet } from 'react-router-dom'
+import SiteNavbar from './SiteNavbar'
+import Footer from './Footer'
 import '../App.css'
 
 export default function Layout() {
   return (
-    <div>
-      <nav className="m-3">
-        <Link to="/" className="me-3">Home</Link>
-        <Link to="/about/">About</Link>
-      </nav>
-
+    <div className="site-shell">
+      <SiteNavbar />
       <main>
-        <Outlet />
+        <Container className="py-4 py-lg-5">
+          <Outlet />
+        </Container>
       </main>
+      <Footer />
     </div>
   )
 }
