@@ -1,20 +1,19 @@
-import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import HomePage from './pages/HomePage.jsx'
-import AboutPage from './pages/AboutPage.jsx'
-import NotFoundPage from './pages/NotFoundPage.jsx'
-import Layout from './components/Layout.jsx'
+import Layout from './components/Layout'
+import HomePage from './pages/HomePage'
+import JourneyPage from './pages/JourneyPage'
+import ContactPage from './pages/ContactPage'
+import NotFoundPage from './pages/NotFoundPage'
 
-function App() {
+export default function App() {
   return (
     <Routes>
-      <Route element={<Layout />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="about" element={<AboutPage />} />
+        <Route path="journey" element={<JourneyPage />} />
+        <Route path="contact" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   )
 }
-
-export default App
