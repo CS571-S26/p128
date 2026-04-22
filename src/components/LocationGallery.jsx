@@ -1,22 +1,32 @@
-import { Card, Col, Row } from 'react-bootstrap'
+import { Badge, Card, Carousel } from 'react-bootstrap'
 
-export default function LocationGallery({ locations }) {
+export default function LocationGallery({ locationName, locationData, activeRegion }) {
   return (
-    <Row className="g-4 mt-1">
-      {locations.map((location) => (
-        <Col md={6} lg={4} key={location.name}>
-          <Card className="location-card h-100 border-0 shadow-sm">
-            <div className="story-image-placeholder">
-              <span>{location.imageLabel}</span>
-            </div>
-            <Card.Body>
-              <p className="location-label">{location.name}</p>
-              <Card.Title>{location.title}</Card.Title>
-              <Card.Text>{location.story}</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
+    <Card className="location-card border-0 shadow-sm mt-4 overflow-hidden">
+      <Carousel interval={null}>
+        {locationData.images.map((image) => (
+          <Carousel.Item key={image.alt}>
+            <img className="journey-photo d-block w-100" src={image.src} alt={image.alt} />
+          </Carousel.Item>
+        ))}
+      </Carousel>
+
+      <Card.Body className="p-4 p-lg-5">
+        <div className="d-flex flex-wrap gap-2 mb-3">
+          <Badge bg="dark">{activeRegion}</Badge>
+          <Badge bg="secondary">{locationName}</Badge>
+        </div>
+
+        <p className="location-label">{locationData.subtitle}</p>
+        <Card.Title className="mb-3">{locationData.title}</Card.Title>
+        <Card.Text className="mb-3">{locationData.story}</Card.Text>
+
+        <ul className="story-highlights">
+          {locationData.highlights.map((highlight) => (
+            <li key={highlight}>{highlight}</li>
+          ))}
+        </ul>
+      </Card.Body>
+    </Card>
   )
 }

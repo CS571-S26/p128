@@ -8,7 +8,9 @@ export default function SiteNavbar() {
         <Navbar.Brand as={NavLink} to="/">
           Karan Kapur
         </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="main-nav" />
+
         <Navbar.Collapse id="main-nav">
           <Nav className="ms-auto">
             <Nav.Link as={NavLink} to="/" end>

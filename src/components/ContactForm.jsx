@@ -27,10 +27,15 @@ export default function ContactForm() {
       <Card.Body className="p-4 p-lg-5">
         <h2 className="mb-3">Get in touch</h2>
         <p className="text-secondary">
-          This form is set up as a polished front-end demo for now. It can later be connected to Formspree, EmailJS, or a custom backend.
+          This form is currently a polished front-end demo. Later, I can connect it to
+          Formspree, EmailJS, or a custom backend.
         </p>
 
-        {submitted && <Alert variant="success">Thanks! Your message has been captured in this demo interface.</Alert>}
+        {submitted && (
+          <Alert variant="success">
+            Thanks! Your message has been captured in this demo interface.
+          </Alert>
+        )}
 
         <Form onSubmit={handleSubmit}>
           <Row className="g-3">
@@ -47,6 +52,7 @@ export default function ContactForm() {
                 />
               </Form.Group>
             </Col>
+
             <Col md={6}>
               <Form.Group controlId="contactEmail">
                 <Form.Label>Email</Form.Label>
@@ -60,6 +66,7 @@ export default function ContactForm() {
                 />
               </Form.Group>
             </Col>
+
             <Col xs={12}>
               <Form.Group controlId="contactMessage">
                 <Form.Label>Message</Form.Label>

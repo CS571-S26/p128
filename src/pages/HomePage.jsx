@@ -10,8 +10,12 @@ export default function HomePage() {
 
       <section className="mt-5">
         <div className="section-heading mb-4">
-          <p className="eyebrow">Portfolio Snapshot</p>
-          <h2>What this site represents</h2>
+          <p className="eyebrow">Featured Work</p>
+          <h2>A few things I’ve built</h2>
+          <p className="page-copy">
+            Alongside my personal story, this site also highlights the technical work I care
+            about most - building practical systems in software engineering, analytics, and AI.
+          </p>
         </div>
 
         <Row className="g-4">

@@ -8,12 +8,15 @@ export default function HeroSection() {
         <Row className="align-items-center gy-4">
           <Col lg={7}>
             <p className="eyebrow">Personal Portfolio</p>
-            <h1 className="display-4 fw-bold">A website built around the map of my life.</h1>
+            <h1 className="display-4 fw-bold">Hi, I’m Karan Kapur.</h1>
             <p className="hero-copy">
-              Explore the places that shaped me across India, New Zealand, and the United States.
-              Each location opens a story, while the rest of the site highlights my work, interests,
-              and ways to connect with me.
+              I am a Computer Science and Data Science student at UW–Madison who is interested
+              in software engineering, AI, analytics, and building meaningful technology.
+              This website combines my portfolio with a “Map of My Life,” where visitors can
+              explore the places and experiences that shaped me across India, New Zealand,
+              and the United States.
             </p>
+
             <div className="d-flex flex-wrap gap-3 mt-4">
               <Button as={Link} to="/journey" size="lg">
                 Explore My Journey
@@ -23,6 +26,7 @@ export default function HeroSection() {
               </Button>
             </div>
           </Col>
+
           <Col lg={5}>
             <div className="hero-card">
               <div className="mini-stat">
@@ -31,7 +35,7 @@ export default function HeroSection() {
               </div>
               <div className="mini-stat">
                 <span>6</span>
-                <p>Cities & regions</p>
+                <p>Locations</p>
               </div>
               <div className="mini-stat">
                 <span>1</span>
