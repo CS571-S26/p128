@@ -1,6 +1,10 @@
 import { Badge, Card, Carousel } from 'react-bootstrap'
 
 export default function LocationGallery({ locationName, locationData, activeRegion }) {
+  if (!locationData || !locationData.images) {
+    return null
+  }
+
   return (
     <Card className="location-card border-0 shadow-sm mt-4 overflow-hidden">
       <Carousel interval={null}>

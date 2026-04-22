@@ -1,11 +1,11 @@
-import aucklandRiver from '../assets/journey/auckland-river.jpg'
-import aucklandWaterfall from '../assets/journey/auckland-waterfall.jpg'
-import chicagoBears from '../assets/journey/chicago-bears.jpg'
-import chicagoBulls from '../assets/journey/chicago-bulls.jpg'
+import aucklandRiver from '../assets/journey/auckland-river.jpeg'
+import aucklandWaterfall from '../assets/journey/auckland-waterfall.JPG'
+import chicagoBears from '../assets/journey/chicago-bears.jpeg'
+import chicagoBulls from '../assets/journey/chicago-bulls.jpeg'
 import delhiSchool from '../assets/journey/delhi-school.jpg'
 import madisonKHK from '../assets/journey/madison-khk.jpg'
-import newYorkSkyline from '../assets/journey/newyork-skyline.jpg'
-import newYorkTimesSquare from '../assets/journey/newyork-times-square.jpg'
+import newYorkSkyline from '../assets/journey/newyork-skyline.JPG'
+import newYorkTimesSquare from '../assets/journey/newyork-times-square.JPG'
 import punjabChildhood from '../assets/journey/punjab-childhood.jpg'
 
 export const portfolioProjects = [

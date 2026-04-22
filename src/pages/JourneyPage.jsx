@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Card } from 'react-bootstrap'
 import LocationGallery from '../components/LocationGallery'
 import LocationSelector from '../components/LocationSelector'
@@ -10,12 +10,19 @@ export default function JourneyPage() {
   const [activeLocation, setActiveLocation] = useState('Delhi')
 
   const selectedRegion = mapData[activeRegion]
-  const locationNames = Object.keys(selectedRegion.locations)
-  const selectedLocation = selectedRegion.locations[activeLocation]
+  const locationNames = useMemo(
+    () => Object.keys(selectedRegion.locations),
+    [selectedRegion]
+  )
 
   useEffect(() => {
-    setActiveLocation(Object.keys(mapData[activeRegion].locations)[0])
-  }, [activeRegion])
+    if (!locationNames.includes(activeLocation)) {
+      setActiveLocation(locationNames[0])
+    }
+  }, [activeRegion, activeLocation, locationNames])
+
+  const selectedLocation =
+    selectedRegion.locations[activeLocation] ?? selectedRegion.locations[locationNames[0]]
 
   return (
     <>
@@ -41,17 +48,19 @@ export default function JourneyPage() {
 
           <LocationSelector
             locations={locationNames}
-            activeLocation={activeLocation}
+            activeLocation={selectedLocation ? activeLocation : locationNames[0]}
             onSelectLocation={setActiveLocation}
           />
         </Card.Body>
       </Card>
 
-      <LocationGallery
-        activeRegion={activeRegion}
-        locationName={activeLocation}
-        locationData={selectedLocation}
-      />
+      {selectedLocation && (
+        <LocationGallery
+          activeRegion={activeRegion}
+          locationName={activeLocation}
+          locationData={selectedLocation}
+        />
+      )}
     </>
   )
 }
