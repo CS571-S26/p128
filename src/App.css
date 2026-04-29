@@ -70,6 +70,14 @@ a {
   margin-bottom: 0.75rem;
 }
 
+.section-heading h2,
+section h1,
+h1,
+h2,
+h3 {
+  font-weight: 800;
+}
+
 .hero-card {
   display: grid;
   gap: 1rem;
@@ -98,11 +106,6 @@ a {
 .mini-stat p {
   margin: 0.3rem 0 0;
   color: #475569;
-}
-
-.section-heading h2,
-section h1 {
-  font-weight: 800;
 }
 
 .region-card {
@@ -141,10 +144,19 @@ section h1 {
   margin: 0 auto;
 }
 
+.location-label {
+  color: #475569;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
 .story-highlights {
   margin: 1rem 0 0;
   padding-left: 1.25rem;
-  color: #334155;
+  color: #1e293b;
 }
 
 .story-highlights li {
@@ -162,7 +174,26 @@ section h1 {
   filter: invert(1);
 }
 
+.site-footer {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  margin: 2rem 0 0;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 1.25rem;
+  }
+
   .journey-photo {
     height: 260px;
   }

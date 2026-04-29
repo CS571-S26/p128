@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap'
 import LocationGallery from '../components/LocationGallery'
 import LocationSelector from '../components/LocationSelector'
 import RegionSelector from '../components/RegionSelector'
+import SectionHeader from '../components/SectionHeader'
 import { mapData } from '../data/siteData'
 
 export default function JourneyPage() {
@@ -10,10 +11,7 @@ export default function JourneyPage() {
   const [activeLocation, setActiveLocation] = useState('Delhi')
 
   const selectedRegion = mapData[activeRegion]
-  const locationNames = useMemo(
-    () => Object.keys(selectedRegion.locations),
-    [selectedRegion]
-  )
+  const locationNames = useMemo(() => Object.keys(selectedRegion.locations), [selectedRegion])
 
   useEffect(() => {
     if (!locationNames.includes(activeLocation)) {
@@ -24,15 +22,17 @@ export default function JourneyPage() {
   const selectedLocation =
     selectedRegion.locations[activeLocation] ?? selectedRegion.locations[locationNames[0]]
 
+  const displayedLocationName =
+    selectedRegion.locations[activeLocation] ? activeLocation : locationNames[0]
+
   return (
     <>
       <section className="mb-5">
-        <p className="eyebrow">Interactive Storytelling</p>
-        <h1>Map of My Life</h1>
-        <p className="page-copy">
-          Start by choosing a country, then click into the specific places that have shaped
-          my life. Each location opens real photos and a short story from that chapter.
-        </p>
+        <SectionHeader
+          eyebrow="Interactive Storytelling"
+          title="Map of My Life"
+          description="Start by choosing a country, then click into the specific places that have shaped my life. Each location opens real photos and a short story from that chapter."
+        />
       </section>
 
       <RegionSelector
@@ -48,7 +48,7 @@ export default function JourneyPage() {
 
           <LocationSelector
             locations={locationNames}
-            activeLocation={selectedLocation ? activeLocation : locationNames[0]}
+            activeLocation={displayedLocationName}
             onSelectLocation={setActiveLocation}
           />
         </Card.Body>
@@ -57,7 +57,7 @@ export default function JourneyPage() {
       {selectedLocation && (
         <LocationGallery
           activeRegion={activeRegion}
-          locationName={activeLocation}
+          locationName={displayedLocationName}
           locationData={selectedLocation}
         />
       )}

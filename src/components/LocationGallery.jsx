@@ -1,4 +1,5 @@
 import { Badge, Card, Carousel } from 'react-bootstrap'
+import StoryHighlights from './StoryHighlights'
 
 export default function LocationGallery({ locationName, locationData, activeRegion }) {
   if (!locationData || !locationData.images) {
@@ -25,11 +26,7 @@ export default function LocationGallery({ locationName, locationData, activeRegi
         <Card.Title className="mb-3">{locationData.title}</Card.Title>
         <Card.Text className="mb-3">{locationData.story}</Card.Text>
 
-        <ul className="story-highlights">
-          {locationData.highlights.map((highlight) => (
-            <li key={highlight}>{highlight}</li>
-          ))}
-        </ul>
+        <StoryHighlights highlights={locationData.highlights} />
       </Card.Body>
     </Card>
   )
